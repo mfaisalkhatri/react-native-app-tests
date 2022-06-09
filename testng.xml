@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Lambda tests Parallel Tests flow">
+    <test name="Proverbial app - Mobile Automation">
+        <parameter name="platformName" value="ANDROID"/>
+        <parameter name="version" value="10"/>
+        <parameter name="device" value="Galaxy S9 Plus"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.LambdaTests">
+                <methods>
+                    <include name="testAndroid"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
