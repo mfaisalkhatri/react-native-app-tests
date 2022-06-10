@@ -1,9 +1,6 @@
 package io.github.mfaisalkhatri.mobileautomation.tests;
 
-import io.github.mfaisalkhatri.drivers.DriverManager;
-import io.github.mfaisalkhatri.mobileautomation.driversetup.Setup;
 import io.github.mfaisalkhatri.mobileautomation.pages.MainPage;
-import org.openqa.selenium.Platform;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,7 +17,7 @@ public class LambdaTests extends BaseTest{
     }
 
     @Test
-    public void testAndroid () {
+    public void proverbialAppTests () {
         mainPage.textButton ().click ();
         assertEquals (mainPage.getText (), "Proverbial");
     }

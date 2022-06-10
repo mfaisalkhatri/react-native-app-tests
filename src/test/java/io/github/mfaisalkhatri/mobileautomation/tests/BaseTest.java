@@ -1,7 +1,6 @@
 package io.github.mfaisalkhatri.mobileautomation.tests;
 
 import io.github.mfaisalkhatri.drivers.DriverManager;
-import io.github.mfaisalkhatri.mobileautomation.pages.MainPage;
 import org.openqa.selenium.Platform;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

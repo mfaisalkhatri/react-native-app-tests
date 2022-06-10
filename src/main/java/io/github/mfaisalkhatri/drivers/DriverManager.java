@@ -9,22 +9,18 @@ import lombok.Builder;
 import lombok.SneakyThrows;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static io.github.mfaisalkhatri.server.ServiceManager.startService;
-import static io.github.mfaisalkhatri.server.ServiceManager.stopService;
 import static java.text.MessageFormat.format;
 
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Driver;
-import java.text.MessageFormat;
+import java.util.concurrent.TimeUnit;
 
 @Builder
 public class DriverManager {
 
     private static final ThreadLocal<AppiumDriver<MobileElement>> DRIVER = new ThreadLocal<> ();
-
+    
     private              Platform platform;
     private              String   platformVersion;
     private              String   deviceName;
@@ -49,6 +45,7 @@ public class DriverManager {
         capabilities.setCapability ("devicelog", true);
         DRIVER.set (new AppiumDriver<> (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
             capabilities));
+        setupDriverTimeouts();
         return this;
     }
 
@@ -61,6 +58,7 @@ public class DriverManager {
         capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
         DRIVER.set (new AndroidDriver<> (new URL (format ("https://{0}", URL)), capabilities));
+        setupDriverTimeouts();
         return this;
     }
 
@@ -73,6 +71,7 @@ public class DriverManager {
         capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
         DRIVER.set (new IOSDriver<> (new URL (format ("https://{0}", URL)), capabilities));
+        setupDriverTimeouts ();
         return this;
     }
 
@@ -90,5 +89,11 @@ public class DriverManager {
             getDriver ().quit ();
             DRIVER.remove ();
         }
+    }
+
+    private void setupDriverTimeouts () {
+        getDriver ().manage ()
+            .timeouts ()
+            .implicitlyWait (30, TimeUnit.SECONDS);
     }
 }
