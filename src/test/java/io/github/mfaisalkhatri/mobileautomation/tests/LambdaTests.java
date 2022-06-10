@@ -18,6 +18,7 @@ public class LambdaTests extends BaseTest{
 
     @Test
     public void proverbialAppTests () {
+        assertEquals (mainPage.getText (), "Hello! Welcome to lambdatest Sample app called Proverbial");
         mainPage.textButton ().click ();
         assertEquals (mainPage.getText (), "Proverbial");
     }
