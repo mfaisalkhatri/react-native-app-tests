@@ -20,10 +20,13 @@ import java.util.concurrent.TimeUnit;
 public class DriverManager {
 
     private static final ThreadLocal<AppiumDriver<MobileElement>> DRIVER = new ThreadLocal<> ();
-    
+
+    private              String   buildName;
+    private              String   testName;
     private              Platform platform;
     private              String   platformVersion;
     private              String   deviceName;
+    private              String   app;
     private static final String   LT_USERNAME     = System.getenv ("username");
     private static final String   LT_ACCESS_TOKEN = System.getenv ("token");
     private static final String   GRID_URL        = "@mobile-hub.lambdatest.com/wd/hub";
@@ -31,46 +34,22 @@ public class DriverManager {
 
     @SneakyThrows
     public DriverManager createRemoteDriver () {
-        DesiredCapabilities capabilities = new DesiredCapabilities ();
-        capabilities.setCapability ("build", "Remote build ");
-        capabilities.setCapability ("name", "Proverbial apk tests");
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, platform);
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
-        capabilities.setCapability (MobileCapabilityType.APP, "lt://APP100202361654757345879208");
-        capabilities.setCapability ("isRealMobile", true);
-        capabilities.setCapability ("network", true);
-        capabilities.setCapability ("visual", true);
-        capabilities.setCapability ("console", true);
-        capabilities.setCapability ("devicelog", true);
         DRIVER.set (new AppiumDriver<> (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
-            capabilities));
-        setupDriverTimeouts();
+            setCapabilities()));
+        setupDriverTimeouts ();
         return this;
     }
 
     @SneakyThrows
     public DriverManager createAndroidDriver () {
-        DesiredCapabilities capabilities = new DesiredCapabilities ();
-        capabilities.setCapability ("build", "android");
-        capabilities.setCapability ("name", "Proverbial apk tests");
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, platform);
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
-        DRIVER.set (new AndroidDriver<> (new URL (format ("https://{0}", URL)), capabilities));
-        setupDriverTimeouts();
+        DRIVER.set (new AndroidDriver<> (new URL (format ("https://{0}", URL)), setCapabilities ()));
+        setupDriverTimeouts ();
         return this;
     }
 
     @SneakyThrows
     public DriverManager createiOSDriver () {
-        DesiredCapabilities capabilities = new DesiredCapabilities ();
-        capabilities.setCapability ("build", "IOS");
-        capabilities.setCapability ("name", "Proverbial IOS tests");
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, platform);
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
-        DRIVER.set (new IOSDriver<> (new URL (format ("https://{0}", URL)), capabilities));
+        DRIVER.set (new IOSDriver<> (new URL (format ("https://{0}", URL)), setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
@@ -95,5 +74,21 @@ public class DriverManager {
         getDriver ().manage ()
             .timeouts ()
             .implicitlyWait (30, TimeUnit.SECONDS);
+    }
+
+    private DesiredCapabilities setCapabilities() {
+        DesiredCapabilities capabilities = new DesiredCapabilities ();
+        capabilities.setCapability ("build", buildName);
+        capabilities.setCapability ("name", testName);
+        capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, platform);
+        capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+        capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
+        capabilities.setCapability (MobileCapabilityType.APP, app);
+        capabilities.setCapability ("isRealMobile", true);
+        capabilities.setCapability ("network", true);
+        capabilities.setCapability ("visual", true);
+        capabilities.setCapability ("console", true);
+        capabilities.setCapability ("devicelog", true);
+        return capabilities;
     }
 }
