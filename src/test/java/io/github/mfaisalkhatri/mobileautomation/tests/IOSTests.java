@@ -7,20 +7,23 @@ import static org.testng.Assert.assertTrue;
 import io.github.mfaisalkhatri.mobileautomation.pages.ios.BrowserPage;
 import io.github.mfaisalkhatri.mobileautomation.pages.ios.GeoLocationPage;
 import io.github.mfaisalkhatri.mobileautomation.pages.ios.HomePage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.SpeedTestPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class IOSTests extends BaseTest{
+public class IOSTests extends BaseTest {
 
-    private HomePage homePage;
+    private HomePage        homePage;
     private GeoLocationPage geoLocationPage;
     private BrowserPage     browserPage;
+    private SpeedTestPage   speedTestPage;
 
     @BeforeClass
     public void setupTest () {
         homePage = new HomePage (driverManager);
         geoLocationPage = new GeoLocationPage (driverManager);
         browserPage = new BrowserPage (driverManager);
+        speedTestPage = new SpeedTestPage (driverManager);
     }
 
     @Test
@@ -31,35 +34,36 @@ public class IOSTests extends BaseTest{
     }
 
     @Test
-    public void notificationTest() {
+    public void notificationTest () {
         clickOn (homePage.notificationBtn ());
-        assertTrue (homePage.notificationBar ().isDisplayed ());
+        assertTrue (homePage.notificationBar ()
+            .isDisplayed ());
     }
 
     @Test
     public void toastMessageTest () {
         clickOn (homePage.toastBtn ());
-//        assertEquals (homePage.toastMessage (), "Toast should be visible");
+        //        assertEquals (homePage.toastMessage (), "Toast should be visible");
     }
 
     @Test
     public void geoLocationTest () {
         clickOn (homePage.geoLocationBtn ());
-        assertTrue (geoLocationPage.banner ().isDisplayed ());
+        assertTrue (geoLocationPage.banner ()
+            .isDisplayed ());
         geoLocationPage.navigateToHomePage ();
     }
 
     @Test
-    public void speedTest() {
-
+    public void speedTestPageTest () {
+        clickOn (homePage.speedtTestBtn ());
+        assertEquals (speedTestPage.headerText (), "Speedtest");
+        speedTestPage.navigateToHomePage ();
     }
 
     @Test
     public void browserTest () {
         clickOn (homePage.browserMenu ());
         browserPage.searchFor ("https://lambdatest.com");
-        browserPage.navigateToHomePage ();
     }
-
-
 }

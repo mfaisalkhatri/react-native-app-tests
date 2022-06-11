@@ -18,6 +18,6 @@ public class Helper {
 
     @SneakyThrows
     public static void waitForsomeTime () {
-        Thread.sleep (3000);
+        Thread.sleep (2000);
     }
 }

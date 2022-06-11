@@ -29,9 +29,12 @@
         <classes>
             <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
                 <methods>
-                    <exclude name="textTests"/>
+                    <include name="textTests"/>
                     <include name="notificationTest"/>
-                    <exclude name="toastMessageTest"/>
+                    <include name="toastMessageTest"/>
+                    <include name="geoLocationTest"/>
+                    <include name="speedTestPageTest"/>
+                    <include name="browserTest"/>
                 </methods>
             </class>
         </classes>
