@@ -4,11 +4,11 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.github.mfaisalkhatri.drivers.DriverManager;
 
-public class MainPage {
+public class HomePage {
 
     DriverManager driverManager;
 
-    public MainPage (final DriverManager driverManager) {
+    public HomePage (final DriverManager driverManager) {
         this.driverManager = driverManager;
     }
 
@@ -35,4 +35,12 @@ public class MainPage {
         return notificationBar ().getText ();
     }
 
+
+    public MobileElement toastBtn() {
+        return driverManager.getDriver ().findElement (MobileBy.id ("toast"));
+    }
+
+    public MobileElement toastMessage () {
+        return driverManager.getDriver ().findElement (MobileBy.xpath ("//hierarchy/android.widget.Toast"));
+    }
 }

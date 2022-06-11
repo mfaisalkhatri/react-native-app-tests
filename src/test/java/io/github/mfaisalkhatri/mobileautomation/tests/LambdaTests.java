@@ -1,6 +1,6 @@
 package io.github.mfaisalkhatri.mobileautomation.tests;
 
-import io.github.mfaisalkhatri.mobileautomation.pages.MainPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.HomePage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -9,17 +9,17 @@ import static org.testng.Assert.assertEquals;
 
 public class LambdaTests extends BaseTest{
 
-    private MainPage mainPage;
+    private HomePage homePage;
 
     @BeforeClass
     public void setupTest () {
-        mainPage = new MainPage (driverManager);
+        homePage = new HomePage (driverManager);
     }
 
     @Test
     public void proverbialAppTests () {
-        assertEquals (mainPage.getText (), "Hello! Welcome to lambdatest Sample app called Proverbial");
-        mainPage.textButton ().click ();
-        assertEquals (mainPage.getText (), "Proverbial");
+        assertEquals (homePage.getText (), "Hello! Welcome to lambdatest Sample app called Proverbial");
+        homePage.textButton ().click ();
+        assertEquals (homePage.getText (), "Proverbial");
     }
 }
