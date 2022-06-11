@@ -43,4 +43,16 @@ public class HomePage {
         return wait.until (ExpectedConditions.presenceOfElementLocated (MobileBy.xpath ("//android.widget.Toast[1]"))).getText ();
     }
 
+    public MobileElement geoLocationBtn() {
+        return driverManager.getDriver ().findElement (MobileBy.id ("geoLocation"));
+    }
+
+    public MobileElement speedtTestBtn () {
+        return driverManager.getDriver ().findElement (MobileBy.id ("speedTest"));
+    }
+
+    public MobileElement browserMenu () {
+        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("Browser"));
+    }
+
 }
