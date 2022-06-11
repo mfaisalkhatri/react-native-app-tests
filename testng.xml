@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Lambda tests Mobile automation test suite" parallel="tests" thread-count="2">
-    <test name="Proverbial app - Android Mobile Automation">
+    <test name="Proverbial app - Android Mobile Automation" enabled="false">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
         <parameter name="app" value="lt://APP100202361654757345879208"/>
@@ -9,15 +9,17 @@
         <parameter name="version" value="10"/>
         <parameter name="device" value="Galaxy S9 Plus"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.LambdaTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
                 <methods>
-                    <include name="proverbialAppTests"/>
+                    <include name="textTests"/>
+                    <include name="notificationTest"/>
+                    <include name="toastMessageTest"/>
                 </methods>
             </class>
         </classes>
     </test> <!-- Test -->
 
-    <test name="Proverbial app - iOS Mobile Automation">
+    <test name="Proverbial app - iOS Mobile Automation" enabled="true">
         <parameter name="buildName" value="IOS Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
         <parameter name="app" value="lt://APP100202361654873955599996"/>
@@ -25,9 +27,11 @@
         <parameter name="version" value="14"/>
         <parameter name="device" value="iPhone 11"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.LambdaTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
                 <methods>
-                    <include name="proverbialAppTests"/>
+                    <exclude name="textTests"/>
+                    <include name="notificationTest"/>
+                    <exclude name="toastMessageTest"/>
                 </methods>
             </class>
         </classes>
