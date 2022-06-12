@@ -10,7 +10,6 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static io.github.mfaisalkhatri.server.ServiceManager.startService;
 import static java.text.MessageFormat.format;
 
 import java.net.URL;

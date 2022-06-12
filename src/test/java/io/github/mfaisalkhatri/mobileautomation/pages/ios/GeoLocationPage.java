@@ -10,7 +10,6 @@ import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 
 public class GeoLocationPage {
 
-
     DriverManager driverManager;
     WebDriverWait wait;
 
@@ -20,16 +19,17 @@ public class GeoLocationPage {
     }
 
     public MobileElement banner () {
-        return (MobileElement) wait.until (ExpectedConditions.presenceOfElementLocated (MobileBy.AccessibilityId ("banner")));
+        return (MobileElement) wait.until (
+            ExpectedConditions.presenceOfElementLocated (MobileBy.AccessibilityId ("banner")));
     }
 
     public MobileElement backBtn () {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("Back"));
+        return driverManager.getDriver ()
+            .findElement (MobileBy.AccessibilityId ("Back"));
     }
 
-    public void navigateToHomePage ( ){
+    public void navigateToHomePage () {
         clickOn (backBtn ());
     }
-
 
 }

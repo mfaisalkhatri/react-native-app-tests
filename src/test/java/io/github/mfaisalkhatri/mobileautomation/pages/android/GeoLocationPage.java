@@ -17,11 +17,14 @@ public class GeoLocationPage {
     }
 
     public MobileElement content () {
-            return (MobileElement) wait.until (ExpectedConditions.presenceOfElementLocated (MobileBy.id ("android:id/content")));
+        return (MobileElement) wait.until (
+            ExpectedConditions.presenceOfElementLocated (MobileBy.id ("android:id/content")));
     }
 
-    public void navigateToHomePage ( ){
-        driverManager.getDriver ().navigate ().back ();
+    public void navigateToHomePage () {
+        driverManager.getDriver ()
+            .navigate ()
+            .back ();
     }
 
 }

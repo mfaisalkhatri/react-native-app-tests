@@ -43,7 +43,7 @@ public class IOSTests extends BaseTest {
     @Test
     public void toastMessageTest () {
         clickOn (homePage.toastBtn ());
-        //        assertEquals (homePage.toastMessage (), "Toast should be visible");
+
     }
 
     @Test
