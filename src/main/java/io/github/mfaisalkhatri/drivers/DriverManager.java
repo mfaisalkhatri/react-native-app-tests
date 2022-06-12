@@ -57,7 +57,6 @@ public class DriverManager {
     @SuppressWarnings ("unchecked")
     public <D extends AppiumDriver<MobileElement>> D getDriver () {
         if (null == DRIVER.get ()) {
-            startService ();
             createRemoteDriver ();
         }
         return (D) DRIVER.get ();

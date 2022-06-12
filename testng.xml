@@ -21,7 +21,6 @@
             </class>
         </classes>
     </test> <!-- Test -->
-
     <test name="Proverbial app - iOS Mobile Automation" >
         <parameter name="buildName" value="IOS Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
@@ -42,5 +41,4 @@
             </class>
         </classes>
     </test> <!-- Test -->
-
 </suite> <!-- Suite -->
