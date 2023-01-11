@@ -1,12 +1,14 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.ios;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
+import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
+
+import java.time.Duration;
+
+import io.appium.java_client.AppiumBy;
 import io.github.mfaisalkhatri.drivers.DriverManager;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 
 public class GeoLocationPage {
 
@@ -15,17 +17,16 @@ public class GeoLocationPage {
 
     public GeoLocationPage (final DriverManager driverManager) {
         this.driverManager = driverManager;
-        wait = new WebDriverWait (driverManager.getDriver (), 30);
+        wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (30));
     }
 
-    public MobileElement banner () {
-        return (MobileElement) wait.until (
-            ExpectedConditions.presenceOfElementLocated (MobileBy.AccessibilityId ("banner")));
+    public WebElement banner () {
+        return wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.accessibilityId ("banner")));
     }
 
-    public MobileElement backBtn () {
+    public WebElement backBtn () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("Back"));
+            .findElement (AppiumBy.accessibilityId ("Back"));
     }
 
     public void navigateToHomePage () {

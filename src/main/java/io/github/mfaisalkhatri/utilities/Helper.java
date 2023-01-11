@@ -1,8 +1,8 @@
 package io.github.mfaisalkhatri.utilities;
 
-import io.appium.java_client.MobileElement;
 import io.github.mfaisalkhatri.drivers.DriverManager;
 import lombok.SneakyThrows;
+import org.openqa.selenium.WebElement;
 
 public class Helper {
 
@@ -12,7 +12,7 @@ public class Helper {
         this.driverManager = driverManager;
     }
 
-    public static void clickOn(MobileElement element) {
+    public static void clickOn (WebElement element) {
         element.click ();
     }
 

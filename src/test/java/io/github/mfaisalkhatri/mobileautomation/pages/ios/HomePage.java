@@ -1,8 +1,10 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.ios;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
+import java.time.Duration;
+
+import io.appium.java_client.AppiumBy;
 import io.github.mfaisalkhatri.drivers.DriverManager;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,46 +15,54 @@ public class HomePage {
 
     public HomePage (final DriverManager driverManager) {
         this.driverManager = driverManager;
-        wait = new WebDriverWait (driverManager.getDriver (), 20);
+        wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (20));
     }
 
-    public MobileElement textBtn () {
+    public WebElement textBtn () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("Text"));
+            .findElement (AppiumBy.accessibilityId ("Text"));
     }
 
     public String getText () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("Textbox"))
+            .findElement (AppiumBy.accessibilityId ("Textbox"))
             .getText ();
     }
 
-    public MobileElement notificationBtn() {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("notification"));
+    public WebElement notificationBtn () {
+        return driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("notification"));
     }
 
-    public MobileElement notificationBar() {
-           return (MobileElement)wait.until (ExpectedConditions.presenceOfElementLocated (MobileBy.AccessibilityId ("NotificationShortLookView")));
+    public WebElement notificationBar () {
+        return wait.until (
+            ExpectedConditions.presenceOfElementLocated (AppiumBy.accessibilityId ("NotificationShortLookView")));
     }
 
-    public MobileElement toastBtn() {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("toast"));
+    public WebElement toastBtn () {
+        return driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("toast"));
     }
 
     public String toastMessage () {
-        return wait.until (ExpectedConditions.presenceOfElementLocated (MobileBy.xpath ("//*[contains(@label, 'Toast should be visible')]"))).getText ();
+        return wait.until (ExpectedConditions.presenceOfElementLocated (
+                AppiumBy.xpath ("//*[contains(@label, 'Toast should be visible')]")))
+            .getText ();
     }
 
-    public MobileElement geoLocationBtn() {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("geoLocation"));
+    public WebElement geoLocationBtn () {
+        return driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("geoLocation"));
     }
 
-    public MobileElement speedtTestBtn () {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("speedTest"));
+    public WebElement speedtTestBtn () {
+        return driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("speedTest"));
     }
 
-    public MobileElement browserMenu () {
-        return driverManager.getDriver ().findElement (MobileBy.AccessibilityId ("Browser"));
+    public WebElement browserMenu () {
+        return driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("Browser"));
     }
 
 }
