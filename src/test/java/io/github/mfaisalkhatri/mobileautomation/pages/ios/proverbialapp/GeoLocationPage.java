@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.mobileautomation.pages.ios;
+package io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp;
 
 import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 

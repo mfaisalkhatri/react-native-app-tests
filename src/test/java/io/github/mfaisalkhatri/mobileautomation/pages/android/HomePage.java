@@ -64,4 +64,14 @@ public class HomePage {
             .findElement (AppiumBy.accessibilityId ("Browser"));
     }
 
+    public void openMenu () {
+        driverManager.getDriver ().findElement (AppiumBy.accessibilityId ("drawer open")).click ();
+    }
+
+    public void clickPushNotificationMenu () {
+        driverManager.getDriver ().findElement (AppiumBy.id ("pushNotification")).click ();
+    }
+
+
+
 }

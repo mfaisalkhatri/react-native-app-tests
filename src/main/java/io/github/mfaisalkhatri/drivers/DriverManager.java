@@ -9,6 +9,8 @@ import java.util.HashMap;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import lombok.Builder;
 import lombok.SneakyThrows;
@@ -41,14 +43,16 @@ public class DriverManager {
 
     @SneakyThrows
     public DriverManager createAndroidDriver () {
-        DRIVER.set (new AndroidDriver (new URL (format ("https://{0}", URL)), setCapabilities ()));
+        DRIVER.set (new AndroidDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+            setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
 
     @SneakyThrows
-    public DriverManager createiOSDriver () {
-        DRIVER.set (new IOSDriver (new URL (format ("https://{0}", URL)), setCapabilities ()));
+    public DriverManager createIOSDriver () {
+        DRIVER.set (new IOSDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+            setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
@@ -85,6 +89,12 @@ public class DriverManager {
         ltOptions.put (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         ltOptions.put (MobileCapabilityType.DEVICE_NAME, deviceName);
         ltOptions.put (MobileCapabilityType.APP, app);
+        ltOptions.put (IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+        ltOptions.put (AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
+       // ltOptions.put ("autoAcceptAlerts", true);
+        //ltOptions.put ("autoGrantPermissions", true);
+        ltOptions.put (MobileCapabilityType.FULL_RESET, true);
+        //ltOptions.put ("autoLaunch", false);
         ltOptions.put ("isRealMobile", true);
         ltOptions.put ("network", true);
         ltOptions.put ("visual", true);

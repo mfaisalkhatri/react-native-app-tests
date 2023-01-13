@@ -1,8 +1,10 @@
-package io.github.mfaisalkhatri.mobileautomation.pages.ios;
+package io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp;
 
 import java.time.Duration;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.PerformsTouchID;
 import io.github.mfaisalkhatri.drivers.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
