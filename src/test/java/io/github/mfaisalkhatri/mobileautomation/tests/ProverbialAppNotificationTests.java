@@ -19,8 +19,8 @@ public class ProverbialAppNotificationTests extends BaseTest {
         homePage.clickPushNotificationMenu ();
         NotificationPage notificationPage = new NotificationPage (driverManager);
         notificationPage.openNotificationPanel ();
-        assertEquals ("Test Notification", notificationPage.getFirstNotificationTitle ());
-        assertEquals ("Please enjoy this notification", notificationPage.getFirstNotificationText ());
+        assertEquals (notificationPage.getFirstNotificationTitle (), "Test Notification");
+        assertEquals (notificationPage.getFirstNotificationText (), "Please enjoy this notification");
     }
 
 }

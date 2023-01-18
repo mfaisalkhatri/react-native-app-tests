@@ -21,7 +21,7 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="Proverbial app - iOS Mobile Automation" enabled="false" >
+    <test name="Proverbial app - iOS Mobile Automation" enabled="false">
         <parameter name="buildName" value="IOS Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
         <parameter name="app" value="lt://APP10160531401673434634013700"/>
@@ -71,6 +71,4 @@
             </class>
         </classes>
     </test> <!-- Test -->
-
-
 </suite> <!-- Suite -->

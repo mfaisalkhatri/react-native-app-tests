@@ -90,6 +90,7 @@ public class DriverManager {
         ltOptions.put (MobileCapabilityType.DEVICE_NAME, deviceName);
         ltOptions.put (MobileCapabilityType.APP, app);
         ltOptions.put (IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+        ltOptions.put (IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, true);
         ltOptions.put (AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
        // ltOptions.put ("autoAcceptAlerts", true);
         //ltOptions.put ("autoGrantPermissions", true);

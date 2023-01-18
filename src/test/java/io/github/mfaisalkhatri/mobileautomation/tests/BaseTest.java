@@ -23,7 +23,7 @@ public class BaseTest {
             .platformVersion (platformVersion)
             .deviceName (deviceName)
             .build ()
-            .createAndroidDriver ();
+            .createRemoteDriver ();
 
     }
 
