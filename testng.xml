@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Lambda tests Mobile automation test suite" parallel="tests" thread-count="2">
-    <test name="Proverbial app - Android Mobile Automation" >
+    <test name="Proverbial app - Android Mobile Automation" enabled="false">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
-        <parameter name="app" value="lt://APP100202361654757345879208"/>
+        <parameter name="app" value="lt://APP10160531401673434826067109"/>
         <parameter name="platformName" value="ANDROID"/>
-        <parameter name="version" value="10"/>
-        <parameter name="device" value="Galaxy S9 Plus"/>
+        <parameter name="version" value="11"/>
+        <parameter name="device" value="Galaxy S20 Plus"/>
         <classes>
             <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
                 <methods>
@@ -21,13 +21,13 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="Proverbial app - iOS Mobile Automation" >
+    <test name="Proverbial app - iOS Mobile Automation" enabled="false">
         <parameter name="buildName" value="IOS Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
-        <parameter name="app" value="lt://APP100202361654873955599996"/>
+        <parameter name="app" value="lt://APP10160531401673434634013700"/>
         <parameter name="platformName" value="IOS"/>
-        <parameter name="version" value="14"/>
-        <parameter name="device" value="iPhone 11"/>
+        <parameter name="version" value="13"/>
+        <parameter name="device" value="iPhone 8 Plus"/>
         <classes>
             <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
                 <methods>
@@ -37,6 +37,36 @@
                     <include name="geoLocationTest"/>
                     <include name="speedTestPageTest"/>
                     <include name="browserTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Proverbial app - iOS Mobile Automation tests for popup" enabled="true">
+        <parameter name="buildName" value="IOS Build"/>
+        <parameter name="testName" value="Find My App tests"/>
+        <parameter name="app" value="lt://APP10160531401673434634013700"/>
+        <parameter name="platformName" value="IOS"/>
+        <parameter name="version" value="13"/>
+        <parameter name="device" value="iPhone 8 Plus"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
+                <methods>
+                    <include name="notificationTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="Proverbial app - Android Mobile Automation" enabled="false">
+        <parameter name="buildName" value="Android Build"/>
+        <parameter name="testName" value="Latest Proverbial app tests"/>
+        <parameter name="app" value="lt://APP10160531401673546544779159"/>
+        <parameter name="platformName" value="ANDROID"/>
+        <parameter name="version" value="11"/>
+        <parameter name="device" value="Galaxy S20 Plus"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.ProverbialAppNotificationTests">
+                <methods>
+                    <include name="testNotification"/>
                 </methods>
             </class>
         </classes>

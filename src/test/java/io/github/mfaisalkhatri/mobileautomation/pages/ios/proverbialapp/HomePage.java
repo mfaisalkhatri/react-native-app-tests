@@ -1,8 +1,10 @@
-package io.github.mfaisalkhatri.mobileautomation.pages.android;
+package io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp;
 
 import java.time.Duration;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.PerformsTouchID;
 import io.github.mfaisalkhatri.drivers.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,58 +22,49 @@ public class HomePage {
 
     public WebElement textBtn () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("Text"));
+            .findElement (AppiumBy.accessibilityId ("Text"));
     }
 
     public String getText () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("Textbox"))
+            .findElement (AppiumBy.accessibilityId ("Textbox"))
             .getText ();
     }
 
     public WebElement notificationBtn () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("notification"));
+            .findElement (AppiumBy.accessibilityId ("notification"));
     }
 
     public WebElement notificationBar () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("action_bar"));
+        return wait.until (
+            ExpectedConditions.presenceOfElementLocated (AppiumBy.accessibilityId ("NotificationShortLookView")));
     }
 
     public WebElement toastBtn () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("toast"));
+            .findElement (AppiumBy.accessibilityId ("toast"));
     }
 
     public String toastMessage () {
-        return wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.xpath ("//android.widget.Toast[1]")))
+        return wait.until (ExpectedConditions.presenceOfElementLocated (
+                AppiumBy.xpath ("//*[contains(@label, 'Toast should be visible')]")))
             .getText ();
     }
 
     public WebElement geoLocationBtn () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("geoLocation"));
+            .findElement (AppiumBy.accessibilityId ("geoLocation"));
     }
 
     public WebElement speedtTestBtn () {
         return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("speedTest"));
+            .findElement (AppiumBy.accessibilityId ("speedTest"));
     }
 
     public WebElement browserMenu () {
         return driverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("Browser"));
     }
-
-    public void openMenu () {
-        driverManager.getDriver ().findElement (AppiumBy.accessibilityId ("drawer open")).click ();
-    }
-
-    public void clickPushNotificationMenu () {
-        driverManager.getDriver ().findElement (AppiumBy.id ("pushNotification")).click ();
-    }
-
-
 
 }

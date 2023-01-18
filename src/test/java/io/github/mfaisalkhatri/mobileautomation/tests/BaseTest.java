@@ -10,9 +10,11 @@ public class BaseTest {
 
     protected DriverManager driverManager;
 
-    @Parameters ({ "buildName", "testName","app","platformName","version","device" })
+    @Parameters ({ "buildName", "testName", "app", "platformName", "version", "device" })
     @BeforeClass
-    public void setupTest (String buildName, String testName, String app, Platform platform, String platformVersion, String deviceName) {
+    public void setupTest (String buildName, String testName, String app, Platform platform, String platformVersion,
+        String deviceName) {
+
         driverManager = DriverManager.builder ()
             .buildName (buildName)
             .testName (testName)
@@ -22,8 +24,8 @@ public class BaseTest {
             .deviceName (deviceName)
             .build ()
             .createRemoteDriver ();
-    }
 
+    }
 
     @AfterClass
     public void tearDown () {

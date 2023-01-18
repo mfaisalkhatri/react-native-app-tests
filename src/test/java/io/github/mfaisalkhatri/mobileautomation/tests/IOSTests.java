@@ -4,10 +4,13 @@ import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import io.github.mfaisalkhatri.mobileautomation.pages.ios.BrowserPage;
-import io.github.mfaisalkhatri.mobileautomation.pages.ios.GeoLocationPage;
-import io.github.mfaisalkhatri.mobileautomation.pages.ios.HomePage;
-import io.github.mfaisalkhatri.mobileautomation.pages.ios.SpeedTestPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.findmyapp.Device;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.findmyapp.MainPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp.BrowserPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp.GeoLocationPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp.HomePage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp.NotificationPage;
+import io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp.SpeedTestPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -38,6 +41,11 @@ public class IOSTests extends BaseTest {
         clickOn (homePage.notificationBtn ());
         assertTrue (homePage.notificationBar ()
             .isDisplayed ());
+        NotificationPage notificationPage = new NotificationPage (driverManager);
+        notificationPage.openNotificationPanel ();
+        assertTrue (notificationPage.getNotificationText ()
+            .contains ("Test Notification, Please enjoy this notification"));
+
     }
 
     @Test
@@ -65,5 +73,13 @@ public class IOSTests extends BaseTest {
     public void browserTest () {
         clickOn (homePage.browserMenu ());
         browserPage.searchFor ("https://lambdatest.com");
+    }
+
+    @Test
+    public void findMyAppTest () {
+        Device device = new Device (driverManager);
+        device.openFindMyApp ();
+        MainPage mainPage = new MainPage (driverManager);
+        assertTrue (mainPage.isDevicesBtnDisplayed ());
     }
 }

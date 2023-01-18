@@ -1,8 +1,8 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.android;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.AppiumBy;
 import io.github.mfaisalkhatri.drivers.DriverManager;
+import org.openqa.selenium.WebElement;
 
 public class SpeedTestPage {
 
@@ -12,9 +12,9 @@ public class SpeedTestPage {
         this.driverManager = driverManager;
     }
 
-    public MobileElement headerText () {
+    public WebElement headerText () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("Speedtest"));
+            .findElement (AppiumBy.accessibilityId ("Speedtest"));
     }
 
     public void navigateToHomePage () {

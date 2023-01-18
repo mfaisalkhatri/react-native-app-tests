@@ -1,24 +1,26 @@
 package io.github.mfaisalkhatri.drivers;
 
+import static java.text.MessageFormat.format;
+
+import java.net.URL;
+import java.time.Duration;
+import java.util.HashMap;
+
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import lombok.Builder;
 import lombok.SneakyThrows;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static java.text.MessageFormat.format;
-
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
 @Builder
 public class DriverManager {
 
-    private static final ThreadLocal<AppiumDriver<MobileElement>> DRIVER = new ThreadLocal<> ();
+    private static final ThreadLocal<AppiumDriver> DRIVER = new ThreadLocal<> ();
 
     private              String   buildName;
     private              String   testName;
@@ -33,28 +35,30 @@ public class DriverManager {
 
     @SneakyThrows
     public DriverManager createRemoteDriver () {
-        DRIVER.set (new AppiumDriver<> (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
-            setCapabilities()));
+        DRIVER.set (new AppiumDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+            setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
 
     @SneakyThrows
     public DriverManager createAndroidDriver () {
-        DRIVER.set (new AndroidDriver<> (new URL (format ("https://{0}", URL)), setCapabilities ()));
+        DRIVER.set (new AndroidDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+            setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
 
     @SneakyThrows
-    public DriverManager createiOSDriver () {
-        DRIVER.set (new IOSDriver<> (new URL (format ("https://{0}", URL)), setCapabilities ()));
+    public DriverManager createIOSDriver () {
+        DRIVER.set (new IOSDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+            setCapabilities ()));
         setupDriverTimeouts ();
         return this;
     }
 
     @SuppressWarnings ("unchecked")
-    public <D extends AppiumDriver<MobileElement>> D getDriver () {
+    public <D extends AppiumDriver> D getDriver () {
         if (null == DRIVER.get ()) {
             createRemoteDriver ();
         }
@@ -71,22 +75,33 @@ public class DriverManager {
     private void setupDriverTimeouts () {
         getDriver ().manage ()
             .timeouts ()
-            .implicitlyWait (30, TimeUnit.SECONDS);
+            .implicitlyWait (Duration.ofSeconds (30));
     }
 
-    private DesiredCapabilities setCapabilities() {
+    private DesiredCapabilities setCapabilities () {
+
         DesiredCapabilities capabilities = new DesiredCapabilities ();
-        capabilities.setCapability ("build", buildName);
-        capabilities.setCapability ("name", testName);
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_NAME, platform);
-        capabilities.setCapability (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
-        capabilities.setCapability (MobileCapabilityType.DEVICE_NAME, deviceName);
-        capabilities.setCapability (MobileCapabilityType.APP, app);
-        capabilities.setCapability ("isRealMobile", true);
-        capabilities.setCapability ("network", true);
-        capabilities.setCapability ("visual", true);
-        capabilities.setCapability ("console", true);
-        capabilities.setCapability ("devicelog", true);
+        HashMap<String, Object> ltOptions = new HashMap<String, Object> ();
+        ltOptions.put ("w3c", true);
+        ltOptions.put ("build", buildName);
+        ltOptions.put ("name", testName);
+        ltOptions.put (MobileCapabilityType.PLATFORM_NAME, platform);
+        ltOptions.put (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
+        ltOptions.put (MobileCapabilityType.DEVICE_NAME, deviceName);
+        ltOptions.put (MobileCapabilityType.APP, app);
+        ltOptions.put (IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
+        ltOptions.put (IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, true);
+        ltOptions.put (AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
+       // ltOptions.put ("autoAcceptAlerts", true);
+        //ltOptions.put ("autoGrantPermissions", true);
+        ltOptions.put (MobileCapabilityType.FULL_RESET, true);
+        //ltOptions.put ("autoLaunch", false);
+        ltOptions.put ("isRealMobile", true);
+        ltOptions.put ("network", true);
+        ltOptions.put ("visual", true);
+        ltOptions.put ("console", true);
+        ltOptions.put ("devicelog", true);
+        capabilities.setCapability ("lt:options", ltOptions);
         return capabilities;
     }
 }

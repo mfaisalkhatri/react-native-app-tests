@@ -3,9 +3,9 @@ package io.github.mfaisalkhatri.mobileautomation.pages.android;
 import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 import static io.github.mfaisalkhatri.utilities.Helper.waitForsomeTime;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.AppiumBy;
 import io.github.mfaisalkhatri.drivers.DriverManager;
+import org.openqa.selenium.WebElement;
 
 public class BrowserPage {
 
@@ -15,9 +15,9 @@ public class BrowserPage {
         this.driverManager = driverManager;
     }
 
-    public MobileElement searchBox () {
+    public WebElement searchBox () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.id ("url"));
+            .findElement (AppiumBy.id ("url"));
     }
 
     public void searchFor (String url) {
@@ -26,9 +26,9 @@ public class BrowserPage {
         waitForsomeTime ();
     }
 
-    public MobileElement findBtn () {
+    public WebElement findBtn () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.id ("find"));
+            .findElement (AppiumBy.id ("find"));
     }
 
     public void navigateToHomePage () {

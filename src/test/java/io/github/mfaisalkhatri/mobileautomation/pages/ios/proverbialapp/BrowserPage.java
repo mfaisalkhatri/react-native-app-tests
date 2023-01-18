@@ -1,12 +1,11 @@
-package io.github.mfaisalkhatri.mobileautomation.pages.ios;
+package io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.github.mfaisalkhatri.drivers.DriverManager;
-
-import static io.github.mfaisalkhatri.utilities.Helper.waitForsomeTime;
 import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
+import static io.github.mfaisalkhatri.utilities.Helper.waitForsomeTime;
 
+import io.appium.java_client.AppiumBy;
+import io.github.mfaisalkhatri.drivers.DriverManager;
+import org.openqa.selenium.WebElement;
 
 public class BrowserPage {
 
@@ -16,9 +15,9 @@ public class BrowserPage {
         this.driverManager = driverManager;
     }
 
-    public MobileElement searchBox () {
+    public WebElement searchBox () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("url"));
+            .findElement (AppiumBy.accessibilityId ("url"));
     }
 
     public void searchFor (String url) {
@@ -27,9 +26,9 @@ public class BrowserPage {
         waitForsomeTime ();
     }
 
-    public MobileElement findBtn () {
+    public WebElement findBtn () {
         return driverManager.getDriver ()
-            .findElement (MobileBy.AccessibilityId ("Find"));
+            .findElement (AppiumBy.accessibilityId ("Find"));
     }
 
     public void navigateToHomePage () {
