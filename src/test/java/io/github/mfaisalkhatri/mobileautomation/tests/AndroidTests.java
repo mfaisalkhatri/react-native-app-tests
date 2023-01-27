@@ -96,8 +96,8 @@ public class AndroidTests extends BaseTest{
     public void getGeoLocationCoOrdinatesTest() {
         Location location = driverManager.getDriver ().location ();
 
-        assertEquals (location.getLatitude (), "26.8206");
-        assertEquals (location.getLongitude (), "30.8025");
+        assertEquals (location.getLatitude (), 26.8206);
+        assertEquals (location.getLongitude (), 30.8025);
         System.out.println ("Latitude is: " + location.getLatitude ());
         System.out.println ("Longitude is: " + location.getLongitude ());
     }
