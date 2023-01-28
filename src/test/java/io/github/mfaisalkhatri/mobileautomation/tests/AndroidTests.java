@@ -1,5 +1,6 @@
 package io.github.mfaisalkhatri.mobileautomation.tests;
 
+import io.appium.java_client.android.AndroidDriver;
 import io.github.mfaisalkhatri.mobileautomation.pages.android.BrowserPage;
 import io.github.mfaisalkhatri.mobileautomation.pages.android.GeoLocationPage;
 import io.github.mfaisalkhatri.mobileautomation.pages.android.HomePage;
@@ -7,6 +8,8 @@ import io.github.mfaisalkhatri.mobileautomation.pages.android.SpeedTestPage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.html5.Location;
+import org.openqa.selenium.html5.LocationContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -87,5 +90,14 @@ public class AndroidTests extends BaseTest{
         } catch (IOException e) {
             throw new RuntimeException (e);
         }
+    }
+
+    @Test
+    public void getGeoLocationCoOrdinatesTest() {
+        Location location = driverManager.getDriver ().location ();
+
+        assertEquals (location.getLatitude (), 26.8206);
+        assertEquals (location.getLongitude (), 30.8025);
+
     }
 }

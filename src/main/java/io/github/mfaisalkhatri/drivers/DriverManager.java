@@ -58,9 +58,9 @@ public class DriverManager {
     }
 
     @SuppressWarnings ("unchecked")
-    public <D extends AppiumDriver> D getDriver () {
+    public <D extends AndroidDriver> D getDriver () {
         if (null == DRIVER.get ()) {
-            createRemoteDriver ();
+            createAndroidDriver ();
         }
         return (D) DRIVER.get ();
     }
@@ -89,13 +89,15 @@ public class DriverManager {
         ltOptions.put (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         ltOptions.put (MobileCapabilityType.DEVICE_NAME, deviceName);
         ltOptions.put (MobileCapabilityType.APP, app);
+        ltOptions.put ("geoLocation", "EG");
+        HashMap<String, String> locationObj = new HashMap<> ();
+        locationObj.put ("lat", "26.8206");
+        locationObj.put ("long", "30.8025");
+        ltOptions.put ("location", locationObj);
         ltOptions.put (IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
         ltOptions.put (IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, true);
         ltOptions.put (AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
-       // ltOptions.put ("autoAcceptAlerts", true);
-        //ltOptions.put ("autoGrantPermissions", true);
         ltOptions.put (MobileCapabilityType.FULL_RESET, true);
-        //ltOptions.put ("autoLaunch", false);
         ltOptions.put ("isRealMobile", true);
         ltOptions.put ("network", true);
         ltOptions.put ("visual", true);
