@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Lambda tests Mobile automation test suite" >
+<suite name="Lambda tests Mobile automation test suite" parallel="tests" thread-count="2" >
     <test name="Proverbial app - Android Mobile Automation" enabled="false">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
@@ -71,7 +71,7 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="Google Map - Geolocation Automation" enabled="true">
+    <test name="Proverbial app - Geolocation Automation" enabled="true">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Google Map Geolocation tests"/>
         <parameter name="app" value="lt://APP10160531401673546544779159"/>
@@ -86,6 +86,4 @@
             </class>
         </classes>
     </test> <!-- Test -->
-
-
 </suite> <!-- Suite -->
