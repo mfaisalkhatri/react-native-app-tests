@@ -5,6 +5,7 @@ import static java.text.MessageFormat.format;
 import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.Optional;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -36,7 +37,7 @@ public class DriverManager {
     @SneakyThrows
     public DriverManager createRemoteDriver () {
         DRIVER.set (new AppiumDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
-            setCapabilities ()));
+            setCapabilities ()  ));
         setupDriverTimeouts ();
         return this;
     }
@@ -44,7 +45,7 @@ public class DriverManager {
     @SneakyThrows
     public DriverManager createAndroidDriver () {
         DRIVER.set (new AndroidDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
-            setCapabilities ()));
+            setCapabilities()));
         setupDriverTimeouts ();
         return this;
     }
@@ -58,11 +59,8 @@ public class DriverManager {
     }
 
     @SuppressWarnings ("unchecked")
-    public <D extends AndroidDriver> D getDriver () {
-        if (null == DRIVER.get ()) {
-            createAndroidDriver ();
-        }
-        return (D) DRIVER.get ();
+    public AndroidDriver getDriver () {
+        return (AndroidDriver) DRIVER.get ();
     }
 
     public void quitDriver () {
@@ -89,17 +87,18 @@ public class DriverManager {
         ltOptions.put (MobileCapabilityType.PLATFORM_VERSION, platformVersion);
         ltOptions.put (MobileCapabilityType.DEVICE_NAME, deviceName);
         ltOptions.put (MobileCapabilityType.APP, app);
-        ltOptions.put ("geoLocation", "EG");
+        ltOptions.put(MobileCapabilityType.BROWSER_NAME, "Chrome");
+        ltOptions.put(MobileCapabilityType.BROWSER_VERSION, "107");
+        ltOptions.put ("geoLocation", "GB");
         HashMap<String, String> locationObj = new HashMap<> ();
-        locationObj.put ("lat", "26.8206");
-        locationObj.put ("long", "30.8025");
+        locationObj.put ("lat", "51.5072");
+        locationObj.put ("long", "0.1276");
         ltOptions.put ("location", locationObj);
         ltOptions.put (IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, true);
         ltOptions.put (IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, true);
         ltOptions.put (AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
         ltOptions.put (MobileCapabilityType.FULL_RESET, true);
-        ltOptions.put ("isRealMobile", true);
-        ltOptions.put ("network", true);
+        ltOptions.put ("isRealMobile", true);;
         ltOptions.put ("visual", true);
         ltOptions.put ("console", true);
         ltOptions.put ("devicelog", true);
