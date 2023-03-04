@@ -71,17 +71,32 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="Proverbial app - Geolocation Automation" enabled="true">
+    <test name="Geolocation Automation Tests" enabled="true">
         <parameter name="buildName" value="Android Build"/>
-        <parameter name="testName" value="Google Map Geolocation tests"/>
-        <parameter name="app" value="lt://APP10160531401673546544779159"/>
+        <parameter name="testName" value="Lat and Long Geolocation tests"/>
         <parameter name="platformName" value="ANDROID"/>
+        <parameter name="app" value="lt://APP10160531401673546544779159"/>
         <parameter name="version" value="11"/>
         <parameter name="device" value="Galaxy S20 Plus"/>
         <classes>
             <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
                 <methods>
                     <include name="getGeoLocationCoOrdinatesTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- Test -->
+    <test name="IP Geolocation Automation Tests" enabled="true">
+        <parameter name="buildName" value="Android Build"/>
+        <parameter name="testName" value="IP Geolocation tests"/>
+        <parameter name="platformName" value="ANDROID"/>
+        <parameter name="app" value=""/>
+        <parameter name="version" value="11"/>
+        <parameter name="device" value="Galaxy Note20"/>
+        <classes>
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
+                <methods>
+                    <include name="testGeoLocation"/>
                 </methods>
             </class>
         </classes>
