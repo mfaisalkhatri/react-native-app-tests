@@ -29,14 +29,14 @@ public class DriverManager {
     private              String   platformVersion;
     private              String   deviceName;
     private              String   app;
-    private static final String   LT_USERNAME     = System.getenv ("username");
-    private static final String   LT_ACCESS_TOKEN = System.getenv ("token");
+    private static final String   LT_USERNAME     = System.getenv ("LT_USERNAME");
+    private static final String   LT_ACCESS_KEY = System.getenv ("LT_ACCESS_KEY");
     private static final String   GRID_URL        = "@mobile-hub.lambdatest.com/wd/hub";
     private static final String   URL             = "http://localhost:4723/wd/hub";
 
     @SneakyThrows
     public DriverManager createRemoteDriver () {
-        DRIVER.set (new AppiumDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+        DRIVER.set (new AppiumDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_KEY, GRID_URL)),
             setCapabilities ()  ));
         setupDriverTimeouts ();
         return this;
@@ -44,7 +44,7 @@ public class DriverManager {
 
     @SneakyThrows
     public DriverManager createAndroidDriver () {
-        DRIVER.set (new AndroidDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+        DRIVER.set (new AndroidDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_KEY, GRID_URL)),
             setCapabilities()));
         setupDriverTimeouts ();
         return this;
@@ -52,7 +52,7 @@ public class DriverManager {
 
     @SneakyThrows
     public DriverManager createIOSDriver () {
-        DRIVER.set (new IOSDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_TOKEN, GRID_URL)),
+        DRIVER.set (new IOSDriver (new URL (format ("https://{0}:{1}{2}", LT_USERNAME, LT_ACCESS_KEY, GRID_URL)),
             setCapabilities ()));
         setupDriverTimeouts ();
         return this;
@@ -60,7 +60,7 @@ public class DriverManager {
 
     @SuppressWarnings ("unchecked")
     public AndroidDriver getDriver () {
-        return (AndroidDriver) DRIVER.get ();
+        return (AndroidDriver) DRIVER.get();
     }
 
     public void quitDriver () {

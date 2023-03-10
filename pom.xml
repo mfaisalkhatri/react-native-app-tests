@@ -82,8 +82,8 @@
                     </suiteXmlFiles>
                     <argLine>${argLine}</argLine>
                     <environmentVariables>
-                        <username>${username}</username>
-                        <token>${token}</token>
+                        <LT_USERNAME>${LT_USERNAME}</LT_USERNAME>
+                        <LT_ACCESS_KEY>${LT_ACCESS_KEY}</LT_ACCESS_KEY>
                     </environmentVariables>
                 </configuration>
             </plugin>
