@@ -11,24 +11,23 @@ public class BaseTest {
 
     protected DriverManager driverManager;
 
-    @Parameters ({ "buildName", "testName", "app", "platformName", "version", "device" })
+    @Parameters({"buildName", "testName", "app", "platformName", "version", "device"})
     @BeforeClass
-    public void setupTest (String buildName, String testName, @Optional("app") String app, Platform platform, String platformVersion,
-        String deviceName) {
-        driverManager = DriverManager.builder ()
-            .buildName (buildName)
-            .testName (testName)
-            .app (app)
-            .platform (platform)
-            .platformVersion (platformVersion)
-            .deviceName (deviceName)
-            .build ()
-            .createAndroidDriver ();
-
+    public void setupTest(String buildName, String testName, @Optional("app") String app, Platform platform, String platformVersion,
+                          String deviceName) {
+        driverManager = DriverManager.builder()
+                .buildName(buildName)
+                .testName(testName)
+                .app(app)
+                .platform(platform)
+                .platformVersion(platformVersion)
+                .deviceName(deviceName)
+                .build()
+                .createAndroidDriver();
     }
 
     @AfterClass
-    public void tearDown () {
-        driverManager.quitDriver ();
+    public void tearDown() {
+        driverManager.quitDriver();
     }
 }
