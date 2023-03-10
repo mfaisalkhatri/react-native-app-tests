@@ -17,5 +17,4 @@
     - [Linktree](https://linktr.ee/faisalkhatri)
 
 
-## :thought_balloon: Checkout the blogs related to Testing on [my website](https://mfaisalkhatri.github.io) and [medium](https://medium.com/@iamfaisalkhatri)
-
+## :thought_balloon: Checkout the blogs related to Testing on [my website](https://mfaisalkhatri.github.io) and [medium](https://medium.com/@iamfaisalkhatri) and on [LambdaTest Blogs](https://www.lambdatest.com/blog/author/mfaisalkhatri/)
