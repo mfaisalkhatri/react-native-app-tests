@@ -1,7 +1,9 @@
 package io.github.mfaisalkhatri.drivers;
 
+import io.appium.java_client.MobileCommand;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.remote.MobilePlatform;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import lombok.Builder;
 import lombok.SneakyThrows;
@@ -77,6 +79,7 @@ public class AndroidDriverManager {
         ltOptions.put("app", this.app);
         ltOptions.put("build", this.buildName);
         ltOptions.put("name", this.testName);
+        ltOptions.put("autoGrantPermissions", true);
         ltOptions.put("isRealMobile", true);
         ltOptions.put("visual", true);
         ltOptions.put("console", true);

@@ -72,6 +72,8 @@ public class IOSDriverManager {
         ltOptions.put("app", this.app);
         ltOptions.put("build", this.buildName);
         ltOptions.put("name", this.testName);
+        ltOptions.put("autoAcceptAlerts", true);
+        ltOptions.put("autoDismissAlerts", true);
         ltOptions.put("isRealMobile", true);
         ltOptions.put("visual", true);
         ltOptions.put("console", true);

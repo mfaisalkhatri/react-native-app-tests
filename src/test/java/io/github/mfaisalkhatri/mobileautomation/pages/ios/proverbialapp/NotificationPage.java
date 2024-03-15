@@ -25,7 +25,7 @@ public class NotificationPage {
     @SneakyThrows
     public void openNotificationPanel () {
         Thread.sleep (5000);
-        final var screenSize = iosDriverManager.getDriver ()
+        final var screenSize = this.iosDriverManager.getDriver ()
             .manage ()
             .window ()
             .getSize ();
@@ -42,13 +42,13 @@ public class NotificationPage {
         swipe.addAction (
             finger.createPointerMove (Duration.ofMillis (1000), PointerInput.Origin.viewport (), bottom.x, bottom.y));
         swipe.addAction (finger.createPointerUp (PointerInput.MouseButton.LEFT.asArg ()));
-        iosDriverManager.getDriver ()
+        this.iosDriverManager.getDriver ()
             .perform (List.of (swipe));
 
     }
 
     private WebElement notificationElement () {
-        return iosDriverManager.getDriver ()
+        return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("NotificationCell"));
     }
 

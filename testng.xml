@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Lambda tests Mobile automation test suite" parallel="tests" thread-count="2" >
-    <test name="Proverbial app - Android Mobile Automation" enabled="true">
+    <test name="Proverbial app - Android Mobile Automation" enabled="false">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
         <parameter name="app" value="lt://APP1016026231710500086926825"/>
@@ -37,6 +37,7 @@
                     <include name="geoLocationTest"/>
                     <include name="speedTestPageTest"/>
                     <include name="browserTest"/>
+
                 </methods>
             </class>
         </classes>

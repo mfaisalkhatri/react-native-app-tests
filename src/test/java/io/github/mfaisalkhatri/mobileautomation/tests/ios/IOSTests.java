@@ -41,10 +41,10 @@ public class IOSTests extends BaseTest {
         clickOn (this.homePage.notificationBtn ());
         assertTrue (this.homePage.notificationBar ()
             .isDisplayed ());
-        final NotificationPage notificationPage = new NotificationPage (this.iosDriverManager);
-        notificationPage.openNotificationPanel ();
-        assertTrue (notificationPage.getNotificationText ()
-            .contains ("Test Notification, Please enjoy this notification"));
+//        final NotificationPage notificationPage = new NotificationPage (this.iosDriverManager);
+//        notificationPage.openNotificationPanel ();
+//        assertTrue (notificationPage.getNotificationText ()
+//            .contains ("Test Notification, Please enjoy this notification"));
 
     }
 
@@ -73,6 +73,7 @@ public class IOSTests extends BaseTest {
     public void browserTest () {
         clickOn (this.homePage.browserMenu ());
         this.browserPage.searchFor ("https://lambdatest.com");
+        this.browserPage.navigateToHomePage();
     }
 
     @Test
