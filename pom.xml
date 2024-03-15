@@ -14,6 +14,7 @@
         <lombok-version>1.18.30</lombok-version>
         <maven.compiler.version>3.11.0</maven.compiler.version>
         <surefire-version>3.2.5</surefire-version>
+        <commons-io.version>2.15.1</commons-io.version>
         <java.release.version>17</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
         <suite-xml>testng.xml</suite-xml>
@@ -41,6 +42,12 @@
             <artifactId>lombok</artifactId>
             <version>${lombok-version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
         </dependency>
     </dependencies>
 
