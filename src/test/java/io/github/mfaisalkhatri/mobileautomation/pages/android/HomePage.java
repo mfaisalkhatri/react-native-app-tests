@@ -54,7 +54,7 @@ public class HomePage {
             .findElement (AppiumBy.id ("geoLocation"));
     }
 
-    public WebElement speedtTestBtn () {
+    public WebElement speedTestBtn () {
         return driverManager.getDriver ()
             .findElement (AppiumBy.id ("speedTest"));
     }
@@ -71,7 +71,5 @@ public class HomePage {
     public void clickPushNotificationMenu () {
         driverManager.getDriver ().findElement (AppiumBy.id ("pushNotification")).click ();
     }
-
-
 
 }

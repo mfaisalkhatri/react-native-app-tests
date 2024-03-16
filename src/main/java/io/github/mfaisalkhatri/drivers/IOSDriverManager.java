@@ -4,6 +4,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import lombok.Builder;
 import lombok.SneakyThrows;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
 import java.time.Duration;
@@ -85,6 +86,8 @@ public class IOSDriverManager {
         ltOptions.put("plugin", "java-testNG");
         return ltOptions;
     }
+
+
 
 
 }

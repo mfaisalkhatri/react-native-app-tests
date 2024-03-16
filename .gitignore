@@ -1,6 +1,7 @@
 # IntelliJ IDEA
 /.idea/
 *.iml
+.DS_Store
 
 # Other output folders
 /target/
@@ -9,3 +10,4 @@
 /logs/
 /reports/
 /.vscode/
+*.png

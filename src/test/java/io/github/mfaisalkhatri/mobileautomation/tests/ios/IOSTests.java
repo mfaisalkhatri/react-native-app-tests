@@ -23,7 +23,7 @@ public class IOSTests extends BaseTest {
 
     @BeforeClass
     public void setupTest () {
-        this.homePage = new HomePage (iosDriverManager);
+        this.homePage = new HomePage (this.iosDriverManager);
         this.geoLocationPage = new GeoLocationPage (this.iosDriverManager);
         this.browserPage = new BrowserPage (this.iosDriverManager);
         this.speedTestPage = new SpeedTestPage (this.iosDriverManager);
@@ -73,7 +73,6 @@ public class IOSTests extends BaseTest {
     public void browserTest () {
         clickOn (this.homePage.browserMenu ());
         this.browserPage.searchFor ("https://lambdatest.com");
-        this.browserPage.navigateToHomePage();
     }
 
     @Test

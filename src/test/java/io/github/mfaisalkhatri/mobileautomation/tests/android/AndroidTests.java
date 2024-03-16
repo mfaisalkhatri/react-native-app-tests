@@ -64,7 +64,7 @@ public class AndroidTests extends BaseTest {
 
     @Test
     public void speedTestPageTest() {
-        clickOn(this.homePage.speedtTestBtn());
+        clickOn(this.homePage.speedTestBtn());
         assertTrue(this.speedTestPage.headerText().isDisplayed());
         this.speedTestPage.navigateToHomePage();
     }

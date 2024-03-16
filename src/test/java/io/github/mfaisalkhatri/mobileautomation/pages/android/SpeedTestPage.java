@@ -6,19 +6,19 @@ import org.openqa.selenium.WebElement;
 
 public class SpeedTestPage {
 
-    private AndroidDriverManager driverManager;
+    private final AndroidDriverManager driverManager;
 
     public SpeedTestPage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
     }
 
     public WebElement headerText () {
-        return driverManager.getDriver ()
+        return this.driverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("Speedtest"));
     }
 
     public void navigateToHomePage () {
-        driverManager.getDriver ()
+        this.driverManager.getDriver ()
             .navigate ()
             .back ();
     }
