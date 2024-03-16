@@ -4,19 +4,19 @@ import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 import static io.github.mfaisalkhatri.utilities.Helper.waitForsomeTime;
 
 import io.appium.java_client.AppiumBy;
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.IOSDriverManager;
 import org.openqa.selenium.WebElement;
 
 public class BrowserPage {
 
-    private DriverManager driverManager;
+    private final IOSDriverManager iosDriverManager;
 
-    public BrowserPage (final DriverManager driverManager) {
-        this.driverManager = driverManager;
+    public BrowserPage (final IOSDriverManager iosDriverManager) {
+        this.iosDriverManager = iosDriverManager;
     }
 
     public WebElement searchBox () {
-        return driverManager.getDriver ()
+        return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("url"));
     }
 
@@ -27,12 +27,12 @@ public class BrowserPage {
     }
 
     public WebElement findBtn () {
-        return driverManager.getDriver ()
+        return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("Find"));
     }
 
     public void navigateToHomePage () {
-        driverManager.getDriver ()
+        this.iosDriverManager.getDriver ()
             .navigate ()
             .back ();
     }

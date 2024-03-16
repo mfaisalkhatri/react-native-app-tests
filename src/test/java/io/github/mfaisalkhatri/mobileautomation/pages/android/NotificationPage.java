@@ -3,7 +3,7 @@ package io.github.mfaisalkhatri.mobileautomation.pages.android;
 import java.util.List;
 
 import io.appium.java_client.android.AndroidDriver;
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.AndroidDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -13,9 +13,9 @@ import org.openqa.selenium.WebElement;
  **/
 public class NotificationPage {
 
-    DriverManager driverManager;
+    AndroidDriverManager driverManager;
 
-    public NotificationPage (final DriverManager driverManager) {
+    public NotificationPage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
     }
 

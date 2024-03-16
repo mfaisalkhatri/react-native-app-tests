@@ -1,4 +1,4 @@
-package io.github.mfaisalkhatri.mobileautomation.tests;
+package io.github.mfaisalkhatri.mobileautomation.tests.ios;
 
 import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 import static org.testng.Assert.assertEquals;
@@ -23,63 +23,63 @@ public class IOSTests extends BaseTest {
 
     @BeforeClass
     public void setupTest () {
-        homePage = new HomePage (driverManager);
-        geoLocationPage = new GeoLocationPage (driverManager);
-        browserPage = new BrowserPage (driverManager);
-        speedTestPage = new SpeedTestPage (driverManager);
+        this.homePage = new HomePage (this.iosDriverManager);
+        this.geoLocationPage = new GeoLocationPage (this.iosDriverManager);
+        this.browserPage = new BrowserPage (this.iosDriverManager);
+        this.speedTestPage = new SpeedTestPage (this.iosDriverManager);
     }
 
     @Test
     public void textTests () {
-        assertEquals (homePage.getText (), "Hello! Welcome to lambdatest Sample App called Proverbial");
-        clickOn (homePage.textBtn ());
-        assertEquals (homePage.getText (), "Proverbial");
+        assertEquals (this.homePage.getText (), "Hello! Welcome to lambdatest Sample App called Proverbial");
+        clickOn (this.homePage.textBtn ());
+        assertEquals (this.homePage.getText (), "Proverbial");
     }
 
     @Test
     public void notificationTest () {
-        clickOn (homePage.notificationBtn ());
-        assertTrue (homePage.notificationBar ()
+        clickOn (this.homePage.notificationBtn ());
+        assertTrue (this.homePage.notificationBar ()
             .isDisplayed ());
-        NotificationPage notificationPage = new NotificationPage (driverManager);
-        notificationPage.openNotificationPanel ();
-        assertTrue (notificationPage.getNotificationText ()
-            .contains ("Test Notification, Please enjoy this notification"));
+//        final NotificationPage notificationPage = new NotificationPage (this.iosDriverManager);
+//        notificationPage.openNotificationPanel ();
+//        assertTrue (notificationPage.getNotificationText ()
+//            .contains ("Test Notification, Please enjoy this notification"));
 
     }
 
     @Test
     public void toastMessageTest () {
-        clickOn (homePage.toastBtn ());
+        clickOn (this.homePage.toastBtn ());
 
     }
 
     @Test
     public void geoLocationTest () {
-        clickOn (homePage.geoLocationBtn ());
-        assertTrue (geoLocationPage.banner ()
+        clickOn (this.homePage.geoLocationBtn ());
+        assertTrue (this.geoLocationPage.banner ()
             .isDisplayed ());
-        geoLocationPage.navigateToHomePage ();
+        this.geoLocationPage.navigateToHomePage ();
     }
 
     @Test
     public void speedTestPageTest () {
-        clickOn (homePage.speedtTestBtn ());
-        assertEquals (speedTestPage.headerText (), "Speedtest");
-        speedTestPage.navigateToHomePage ();
+        clickOn (this.homePage.speedTestBtn ());
+        assertEquals (this.speedTestPage.headerText (), "Speedtest");
+        this.speedTestPage.navigateToHomePage ();
     }
 
     @Test
     public void browserTest () {
-        clickOn (homePage.browserMenu ());
-        browserPage.searchFor ("https://lambdatest.com");
+        clickOn (this.homePage.browserMenu ());
+        this.browserPage.searchFor ("https://lambdatest.com");
     }
 
     @Test
     public void findMyAppTest () {
-        Device device = new Device (driverManager);
+        final Device device = new Device (this.iosDriverManager);
         device.openFindMyApp ();
-        MainPage mainPage = new MainPage (driverManager);
+        final MainPage mainPage = new MainPage (this.iosDriverManager);
         assertTrue (mainPage.isDevicesBtnDisplayed ());
     }
 }

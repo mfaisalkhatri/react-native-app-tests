@@ -5,7 +5,7 @@ import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
 import java.time.Duration;
 
 import io.appium.java_client.AppiumBy;
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.IOSDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,27 +15,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  **/
 public class MainPage {
 
-    DriverManager driverManager;
-    WebDriverWait wait;
+    private final IOSDriverManager iosDriverManager;
+    private final WebDriverWait wait;
 
-    public MainPage (final DriverManager driverManager) {
-        this.driverManager = driverManager;
-        wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (20));
+    public MainPage (final IOSDriverManager iosDriverManager) {
+        this.iosDriverManager = iosDriverManager;
+        wait = new WebDriverWait (iosDriverManager.getDriver (), Duration.ofSeconds (20));
     }
 
     private WebElement continueBtn () {
-        return driverManager.getDriver ()
+        return iosDriverManager.getDriver ()
             .findElement (AppiumBy.iOSClassChain (
                 "**/XCUIElementTypeButton[`label == \"Continue\"`]**/XCUIElementTypeButton[`label == \"Continue\"`]"));
     }
 
     private WebElement devicesBtn () {
-        return driverManager.getDriver ()
+        return iosDriverManager.getDriver ()
             .findElement (AppiumBy.iOSNsPredicateString ("label == \"Devices\""));
     }
 
     private WebElement meButton () {
-        return driverManager.getDriver ()
+        return iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("meButton"));
     }
 

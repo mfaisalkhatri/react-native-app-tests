@@ -1,8 +1,7 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.android;
 
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.AndroidDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,10 +9,10 @@ import java.time.Duration;
 
 public class IPLocationPage {
 
-    private DriverManager driverManager;
+    private AndroidDriverManager driverManager;
     private WebDriverWait wait;
 
-    public IPLocationPage (final DriverManager driverManager) {
+    public IPLocationPage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
         wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (30));
     }

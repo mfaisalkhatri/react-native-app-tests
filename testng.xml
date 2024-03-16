@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Lambda tests Mobile automation test suite" parallel="tests" thread-count="2" >
-    <test name="Proverbial app - Android Mobile Automation" enabled="false">
+<suite name="LambdaTest Mobile automation test suite" parallel="tests" thread-count="2" >
+    <test name="Proverbial app - Android Mobile Automation">
         <parameter name="buildName" value="Android Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
-        <parameter name="app" value="lt://APP10160531401673434826067109"/>
+        <parameter name="app" value="lt://APP1016026231710500086926825"/>
         <parameter name="platformName" value="ANDROID"/>
-        <parameter name="version" value="11"/>
-        <parameter name="device" value="Galaxy S20 Plus"/>
+        <parameter name="platformVersion" value="13"/>
+        <parameter name="deviceName" value="Galaxy S23"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.android.AndroidTests">
                 <methods>
                     <include name="textTests"/>
                     <include name="notificationTest"/>
@@ -21,15 +21,15 @@
             </class>
         </classes>
     </test> <!-- Test -->
-    <test name="Proverbial app - iOS Mobile Automation" enabled="false">
+    <test name="Proverbial app - iOS Mobile Automation">
         <parameter name="buildName" value="IOS Build"/>
         <parameter name="testName" value="Proverbial app tests"/>
-        <parameter name="app" value="lt://APP10160531401673434634013700"/>
+        <parameter name="app" value="lt://APP1016026231710499882750475"/>
         <parameter name="platformName" value="IOS"/>
-        <parameter name="version" value="13"/>
-        <parameter name="device" value="iPhone 8 Plus"/>
+        <parameter name="platformVersion" value="16"/>
+        <parameter name="deviceName" value="iPhone 14 Pro"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.ios.IOSTests">
                 <methods>
                     <include name="textTests"/>
                     <include name="notificationTest"/>
@@ -49,7 +49,7 @@
         <parameter name="version" value="13"/>
         <parameter name="device" value="iPhone 8 Plus"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.IOSTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.ios.IOSTests">
                 <methods>
                     <include name="notificationTest"/>
                 </methods>
@@ -64,7 +64,7 @@
         <parameter name="version" value="11"/>
         <parameter name="device" value="Galaxy S20 Plus"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.ProverbialAppNotificationTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.android.ProverbialAppNotificationTests">
                 <methods>
                     <include name="testNotification"/>
                 </methods>
@@ -79,7 +79,7 @@
         <parameter name="version" value="11"/>
         <parameter name="device" value="Galaxy S20 Plus"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.android.AndroidTests">
                 <methods>
                     <include name="getGeoLocationCoOrdinatesTest"/>
                 </methods>
@@ -94,7 +94,7 @@
         <parameter name="version" value="11"/>
         <parameter name="device" value="Galaxy Note20"/>
         <classes>
-            <class name="io.github.mfaisalkhatri.mobileautomation.tests.AndroidTests">
+            <class name="io.github.mfaisalkhatri.mobileautomation.tests.android.AndroidTests">
                 <methods>
                     <include name="testGeoLocation"/>
                 </methods>

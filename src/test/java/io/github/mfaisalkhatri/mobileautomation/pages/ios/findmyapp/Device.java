@@ -1,10 +1,7 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.ios.findmyapp;
 
-import java.time.Duration;
-
 import io.appium.java_client.AppiumBy;
-import io.github.mfaisalkhatri.drivers.DriverManager;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.mfaisalkhatri.drivers.IOSDriverManager;
 
 /**
  * @author Faisal Khatri
@@ -12,14 +9,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  **/
 public class Device {
 
-    DriverManager driverManager;
+    private final IOSDriverManager iosDriverManager;
 
-    public Device (final DriverManager driverManager) {
-        this.driverManager = driverManager;
+    public Device(final IOSDriverManager iosDriverManager) {
+        this.iosDriverManager = iosDriverManager;
     }
 
     public void openFindMyApp () {
-        driverManager.getDriver ()
+        iosDriverManager.getDriver()
             .findElement (AppiumBy.iOSNsPredicateString ("label==\"Find My\""))
             .click ();
     }

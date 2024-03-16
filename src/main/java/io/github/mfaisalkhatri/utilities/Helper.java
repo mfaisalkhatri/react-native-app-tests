@@ -1,14 +1,14 @@
 package io.github.mfaisalkhatri.utilities;
 
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.AndroidDriverManager;
 import lombok.SneakyThrows;
 import org.openqa.selenium.WebElement;
 
 public class Helper {
 
-    DriverManager driverManager;
+    AndroidDriverManager driverManager;
 
-    public Helper (final DriverManager driverManager) {
+    public Helper (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
     }
 

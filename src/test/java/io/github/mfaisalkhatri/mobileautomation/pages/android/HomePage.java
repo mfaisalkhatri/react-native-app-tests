@@ -3,17 +3,17 @@ package io.github.mfaisalkhatri.mobileautomation.pages.android;
 import java.time.Duration;
 
 import io.appium.java_client.AppiumBy;
-import io.github.mfaisalkhatri.drivers.DriverManager;
+import io.github.mfaisalkhatri.drivers.AndroidDriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
 
-    DriverManager driverManager;
+    AndroidDriverManager driverManager;
     WebDriverWait wait;
 
-    public HomePage (final DriverManager driverManager) {
+    public HomePage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
         wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (20));
     }
@@ -54,7 +54,7 @@ public class HomePage {
             .findElement (AppiumBy.id ("geoLocation"));
     }
 
-    public WebElement speedtTestBtn () {
+    public WebElement speedTestBtn () {
         return driverManager.getDriver ()
             .findElement (AppiumBy.id ("speedTest"));
     }
@@ -71,7 +71,5 @@ public class HomePage {
     public void clickPushNotificationMenu () {
         driverManager.getDriver ().findElement (AppiumBy.id ("pushNotification")).click ();
     }
-
-
 
 }
