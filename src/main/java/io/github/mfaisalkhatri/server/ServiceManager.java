@@ -6,8 +6,8 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 
 public class ServiceManager {
 
-    private static AppiumServiceBuilder     serviceBuilder;
     private static AppiumDriverLocalService service;
+    private static AppiumServiceBuilder     serviceBuilder;
 
     public static void startService () {
         serviceBuilder = new AppiumServiceBuilder ().usingAnyFreePort ()

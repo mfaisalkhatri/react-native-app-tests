@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -9,12 +9,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <appium-java-client-version>9.2.2</appium-java-client-version>
-        <testng-version>7.9.0</testng-version>
-        <lombok-version>1.18.32</lombok-version>
-        <maven.compiler.version>3.13.0</maven.compiler.version>
-        <surefire-version>3.2.5</surefire-version>
-        <commons-io.version>2.16.0</commons-io.version>
+        <appium-java-client-version>9.5.0</appium-java-client-version>
+        <testng-version>7.11.0</testng-version>
+        <lombok-version>1.18.38</lombok-version>
+        <maven.compiler.version>3.14.0</maven.compiler.version>
+        <surefire-version>3.5.3</surefire-version>
+        <commons-io.version>2.20.0</commons-io.version>
         <java.release.version>17</java.release.version>
         <maven.source.encoding>UTF-8</maven.source.encoding>
         <suite-xml>testng.xml</suite-xml>
@@ -23,27 +23,23 @@
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng-version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>${appium-java-client-version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok-version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -90,5 +86,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

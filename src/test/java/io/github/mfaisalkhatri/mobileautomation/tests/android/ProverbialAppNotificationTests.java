@@ -23,5 +23,4 @@ public class ProverbialAppNotificationTests extends BaseTest {
         assertEquals (notificationPage.getFirstNotificationTitle (), "Test Notification");
         assertEquals (notificationPage.getFirstNotificationText (), "Please enjoy this notification");
     }
-
 }

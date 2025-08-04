@@ -22,6 +22,10 @@ public class NotificationPage {
         this.iosDriverManager = iosDriverManager;
     }
 
+    public String getNotificationText () {
+        return notificationElement ().getText ();
+    }
+
     @SneakyThrows
     public void openNotificationPanel () {
         Thread.sleep (5000);
@@ -51,9 +55,4 @@ public class NotificationPage {
         return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("NotificationCell"));
     }
-
-    public String getNotificationText () {
-        return notificationElement ().getText ();
-    }
-
 }

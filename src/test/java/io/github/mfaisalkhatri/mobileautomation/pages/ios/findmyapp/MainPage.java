@@ -16,40 +16,38 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPage {
 
     private final IOSDriverManager iosDriverManager;
-    private final WebDriverWait wait;
+    private final WebDriverWait    wait;
 
     public MainPage (final IOSDriverManager iosDriverManager) {
         this.iosDriverManager = iosDriverManager;
-        wait = new WebDriverWait (iosDriverManager.getDriver (), Duration.ofSeconds (20));
-    }
-
-    private WebElement continueBtn () {
-        return iosDriverManager.getDriver ()
-            .findElement (AppiumBy.iOSClassChain (
-                "**/XCUIElementTypeButton[`label == \"Continue\"`]**/XCUIElementTypeButton[`label == \"Continue\"`]"));
-    }
-
-    private WebElement devicesBtn () {
-        return iosDriverManager.getDriver ()
-            .findElement (AppiumBy.iOSNsPredicateString ("label == \"Devices\""));
-    }
-
-    private WebElement meButton () {
-        return iosDriverManager.getDriver ()
-            .findElement (AppiumBy.accessibilityId ("meButton"));
-    }
-
-    public boolean isDevicesBtnDisplayed (){
-        return devicesBtn ().isDisplayed ();
-    }
-
-
-    public boolean isContinueBtnDisplayed () {
-        return continueBtn ().isDisplayed ();
+        this.wait = new WebDriverWait (iosDriverManager.getDriver (), Duration.ofSeconds (20));
     }
 
     public void clickMeBtn () {
         clickOn (meButton ());
     }
 
+    public boolean isContinueBtnDisplayed () {
+        return continueBtn ().isDisplayed ();
+    }
+
+    public boolean isDevicesBtnDisplayed () {
+        return devicesBtn ().isDisplayed ();
+    }
+
+    private WebElement continueBtn () {
+        return this.iosDriverManager.getDriver ()
+            .findElement (AppiumBy.iOSClassChain (
+                "**/XCUIElementTypeButton[`label == \"Continue\"`]**/XCUIElementTypeButton[`label == \"Continue\"`]"));
+    }
+
+    private WebElement devicesBtn () {
+        return this.iosDriverManager.getDriver ()
+            .findElement (AppiumBy.iOSNsPredicateString ("label == \"Devices\""));
+    }
+
+    private WebElement meButton () {
+        return this.iosDriverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("meButton"));
+    }
 }

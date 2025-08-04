@@ -1,7 +1,7 @@
 package io.github.mfaisalkhatri.mobileautomation.pages.ios.proverbialapp;
 
 import static io.github.mfaisalkhatri.utilities.Helper.clickOn;
-import static io.github.mfaisalkhatri.utilities.Helper.waitForsomeTime;
+import static io.github.mfaisalkhatri.utilities.Helper.waitForSomeTime;
 
 import io.appium.java_client.AppiumBy;
 import io.github.mfaisalkhatri.drivers.IOSDriverManager;
@@ -15,17 +15,6 @@ public class BrowserPage {
         this.iosDriverManager = iosDriverManager;
     }
 
-    public WebElement searchBox () {
-        return this.iosDriverManager.getDriver ()
-            .findElement (AppiumBy.accessibilityId ("url"));
-    }
-
-    public void searchFor (String url) {
-        searchBox ().sendKeys (url);
-        clickOn (findBtn ());
-        waitForsomeTime ();
-    }
-
     public WebElement findBtn () {
         return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("Find"));
@@ -35,6 +24,17 @@ public class BrowserPage {
         this.iosDriverManager.getDriver ()
             .navigate ()
             .back ();
+    }
+
+    public WebElement searchBox () {
+        return this.iosDriverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("url"));
+    }
+
+    public void searchFor (final String url) {
+        searchBox ().sendKeys (url);
+        clickOn (findBtn ());
+        waitForSomeTime ();
     }
 
 }
