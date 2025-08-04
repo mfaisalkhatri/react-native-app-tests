@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GeoLocationPage {
 
     private final AndroidDriverManager driverManager;
-    private final WebDriverWait wait;
+    private final WebDriverWait        wait;
 
     public GeoLocationPage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
@@ -21,11 +21,10 @@ public class GeoLocationPage {
     public WebElement content () {
         return this.wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.id ("android:id/content")));
     }
-
+    
     public void navigateToHomePage () {
         this.driverManager.getDriver ()
             .navigate ()
             .back ();
     }
-
 }

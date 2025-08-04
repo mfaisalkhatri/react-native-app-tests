@@ -13,20 +13,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GeoLocationPage {
 
     private final IOSDriverManager iosDriverManager;
-    private final WebDriverWait wait;
+    private final WebDriverWait    wait;
 
     public GeoLocationPage (final IOSDriverManager iosDriverManager) {
         this.iosDriverManager = iosDriverManager;
         this.wait = new WebDriverWait (iosDriverManager.getDriver (), Duration.ofSeconds (30));
     }
 
-    public WebElement banner () {
-        return this.wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.accessibilityId ("banner")));
-    }
-
     public WebElement backBtn () {
         return this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.accessibilityId ("Back"));
+    }
+
+    public WebElement banner () {
+        return this.wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.accessibilityId ("banner")));
     }
 
     public void navigateToHomePage () {

@@ -11,12 +11,12 @@ public class Device {
 
     private final IOSDriverManager iosDriverManager;
 
-    public Device(final IOSDriverManager iosDriverManager) {
+    public Device (final IOSDriverManager iosDriverManager) {
         this.iosDriverManager = iosDriverManager;
     }
 
     public void openFindMyApp () {
-        iosDriverManager.getDriver()
+        this.iosDriverManager.getDriver ()
             .findElement (AppiumBy.iOSNsPredicateString ("label==\"Find My\""))
             .click ();
     }

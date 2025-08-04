@@ -10,25 +10,24 @@ public class BaseTest {
 
     protected IOSDriverManager iosDriverManager;
 
-    @Parameters({"buildName", "testName", "app", "platformName", "platformVersion", "deviceName"})
+    @Parameters ({ "buildName", "testName", "app", "platformName", "platformVersion", "deviceName" })
     @BeforeClass
-    public void setupTest(final String buildName, final String testName, @Optional("app") final String app, final String platformName, final String platformVersion,
-                          final String deviceName) {
+    public void setupTest (final String buildName, final String testName, @Optional ("app") final String app,
+        final String platformName, final String platformVersion, final String deviceName) {
 
-        this.iosDriverManager = IOSDriverManager.builder()
-                .buildName(buildName)
-                .testName(testName)
-                .app(app)
-                .platformName(platformName)
-                .platformVersion(platformVersion)
-                .deviceName(deviceName)
-                .build()
-                .createIOSDriver();
+        this.iosDriverManager = IOSDriverManager.builder ()
+            .buildName (buildName)
+            .testName (testName)
+            .app (app)
+            .platformName (platformName)
+            .platformVersion (platformVersion)
+            .deviceName (deviceName)
+            .build ()
+            .createIOSDriver ();
     }
 
     @AfterClass
-    public void tearDown() {
-        this.iosDriverManager.quitDriver();
+    public void tearDown () {
+        this.iosDriverManager.quitDriver ();
     }
-
 }

@@ -2,7 +2,6 @@ package io.github.mfaisalkhatri.mobileautomation.pages.android;
 
 import java.util.List;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.github.mfaisalkhatri.drivers.AndroidDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,9 +18,9 @@ public class NotificationPage {
         this.driverManager = driverManager;
     }
 
-    private List<WebElement> notificationTitles () {
-        return driverManager.getDriver ()
-            .findElements (By.id ("android:id/title"));
+    public String getFirstNotificationText () {
+        return notificationTexts ().get (0)
+            .getText ();
     }
 
     public String getFirstNotificationTitle () {
@@ -29,19 +28,18 @@ public class NotificationPage {
             .getText ();
     }
 
-    private List<WebElement> notificationTexts () {
-        return driverManager.getDriver ()
-            .findElements (By.id ("android:id/text"));
-    }
-
-    public String getFirstNotificationText () {
-        return notificationTexts ().get (0)
-            .getText ();
-    }
-
     public void openNotificationPanel () {
-        driverManager.<AndroidDriver>getDriver ()
+        this.driverManager.getDriver ()
             .openNotifications ();
     }
 
+    private List<WebElement> notificationTexts () {
+        return this.driverManager.getDriver ()
+            .findElements (By.id ("android:id/text"));
+    }
+
+    private List<WebElement> notificationTitles () {
+        return this.driverManager.getDriver ()
+            .findElements (By.id ("android:id/title"));
+    }
 }

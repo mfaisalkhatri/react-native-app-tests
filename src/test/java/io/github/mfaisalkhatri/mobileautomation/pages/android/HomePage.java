@@ -11,65 +11,70 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
 
     AndroidDriverManager driverManager;
-    WebDriverWait wait;
+    WebDriverWait        wait;
 
     public HomePage (final AndroidDriverManager driverManager) {
         this.driverManager = driverManager;
-        wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (20));
+        this.wait = new WebDriverWait (driverManager.getDriver (), Duration.ofSeconds (20));
     }
 
-    public WebElement textBtn () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("Text"));
+    public WebElement browserMenu () {
+        return this.driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("Browser"));
+    }
+
+    public void clickPushNotificationMenu () {
+        this.driverManager.getDriver ()
+            .findElement (AppiumBy.id ("pushNotification"))
+            .click ();
+    }
+
+    public WebElement geoLocationBtn () {
+        return this.driverManager.getDriver ()
+            .findElement (AppiumBy.id ("geoLocation"));
     }
 
     public String getText () {
-        return driverManager.getDriver ()
+        return this.driverManager.getDriver ()
             .findElement (AppiumBy.id ("Textbox"))
             .getText ();
     }
 
-    public WebElement notificationBtn () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("notification"));
-    }
-
     public WebElement notificationBar () {
-        return driverManager.getDriver ()
+        return this.driverManager.getDriver ()
             .findElement (AppiumBy.id ("action_bar"));
     }
 
+    public WebElement notificationBtn () {
+        return this.driverManager.getDriver ()
+            .findElement (AppiumBy.id ("notification"));
+    }
+
+    public void openMenu () {
+        this.driverManager.getDriver ()
+            .findElement (AppiumBy.accessibilityId ("drawer open"))
+            .click ();
+    }
+
+    public WebElement speedTestBtn () {
+        return this.driverManager.getDriver ()
+            .findElement (AppiumBy.id ("speedTest"));
+    }
+
+    public WebElement textBtn () {
+        return this.driverManager.getDriver ()
+            .findElement (AppiumBy.id ("Text"));
+    }
+
     public WebElement toastBtn () {
-        return driverManager.getDriver ()
+        return this.driverManager.getDriver ()
             .findElement (AppiumBy.id ("toast"));
     }
 
     public String toastMessage () {
-        return wait.until (ExpectedConditions.presenceOfElementLocated (AppiumBy.xpath ("//android.widget.Toast[1]")))
+        return this.wait.until (
+                ExpectedConditions.presenceOfElementLocated (AppiumBy.xpath ("//android.widget.Toast[1]")))
             .getText ();
-    }
-
-    public WebElement geoLocationBtn () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("geoLocation"));
-    }
-
-    public WebElement speedTestBtn () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.id ("speedTest"));
-    }
-
-    public WebElement browserMenu () {
-        return driverManager.getDriver ()
-            .findElement (AppiumBy.accessibilityId ("Browser"));
-    }
-
-    public void openMenu () {
-        driverManager.getDriver ().findElement (AppiumBy.accessibilityId ("drawer open")).click ();
-    }
-
-    public void clickPushNotificationMenu () {
-        driverManager.getDriver ().findElement (AppiumBy.id ("pushNotification")).click ();
     }
 
 }

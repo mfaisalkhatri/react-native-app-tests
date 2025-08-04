@@ -22,5 +22,4 @@ public class SpeedTestPage {
             .navigate ()
             .back ();
     }
-
 }
