@@ -1,6 +1,3 @@
-
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-
 ## Don't forget to give a :star: to make the project popular.
 
 ## :question: What is this Repository about?
@@ -18,8 +15,6 @@
 - [What is an Android Emulator? How to Start and use it?](https://medium.com/@iamfaisalkhatri/what-is-an-android-emulator-how-to-start-and-use-it-66fdcf52be7e)
 - [How to start Appium Server Programmatically?](https://medium.com/@iamfaisalkhatri/how-to-start-appium-server-programmatically-ec07292ab59)
 - [Guide to Mobile Testing](https://medium.com/@iamfaisalkhatri/guide-to-mobile-testing-d0dd2d9b59f1)
-
-
 
 🧬 Need Assistance?
 
